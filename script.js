@@ -221,13 +221,11 @@ document.querySelectorAll('.legal').forEach(legal => {
 
 
 if (enquiryForm) {
-  enquiryForm.addEventListener('submit', event => {
-    event.preventDefault();
-    const message = document.querySelector('#form-message');
+  const message = document.querySelector('#form-message');
+  if (new URLSearchParams(window.location.search).get('sent') === '1') {
     message.classList.add('visible');
-    enquiryForm.reset();
-    updateFormHelper();
-  });
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
 }
 
 document.querySelectorAll('[data-year]').forEach(element => {
