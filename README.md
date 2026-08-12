@@ -1,6 +1,6 @@
 # Clean28 Cleaning Services
 
-Public website for Clean28 Cleaning Services, a local Perth cleaning team for homes, offices and community spaces.
+Public website for Clean28 Cleaning Services, a Perth-owned commercial cleaning company providing reliable, professional and tailored services across Western Australia.
 
 ## Website pages
 
@@ -12,4 +12,4 @@ Public website for Clean28 Cleaning Services, a local Perth cleaning team for ho
 
 ## Contact
 
-Call 0447 716 696 or use the website contact form to request a quote.
+Call 0451 832 280, email admin@clean28.com.au, or use the website contact form to request a quote.

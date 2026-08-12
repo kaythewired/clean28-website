@@ -478,9 +478,14 @@ body[data-theme="dark"] .hero-note { color: #c6dce9; }
   .home-hero { padding: 0 0 70px; }
   h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
   .hero-mark { min-height: 0; }
-  .hero-carousel { height: 460px; }
-  .carousel-caption { right: 20px; bottom: 58px; left: 20px; }
+  .hero-carousel { height: calc(56.25vw + 215px); min-height: 500px; background: #061827; }
+  .carousel-image { top: 0; height: 56.25vw; max-height: none; object-fit: contain; object-position: center; }
+  .carousel-slide.is-active .carousel-image { transform: none; }
+  .carousel-scrim { background: linear-gradient(180deg, rgba(7,23,38,.03) 0 38%, rgba(6,24,39,.5) 54%, #061827 69%); }
+  .carousel-caption { top: calc(56.25vw + 22px); right: 20px; bottom: auto; left: 20px; max-width: none; }
+  .carousel-caption h2 { font-size: clamp(1.55rem, 7vw, 2.1rem); }
   .carousel-caption p { font-size: .88rem; }
+  .carousel-controls { right: 20px; bottom: 20px; left: 20px; }
   .hero-mark-main { inset: 7px 6px 7px 24px; }
   .hero-mark-main img { width: 205px; height: 205px; }
   .hero-note { top: 35px; width: 165px; padding: 12px; }

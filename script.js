@@ -103,11 +103,11 @@ const ctaQuote = document.querySelector('[data-cta-quote]');
 if (ctaQuote) {
   const ctaSection = ctaQuote.closest('.cta');
   const cleaningQuotes = [
-    { text: 'A cleaner space is only a few clicks away.', theme: 'cta--blue' },
-    { text: 'Clean space. Clear mind.', theme: 'cta--lime' },
-    { text: 'Fresh spaces make room for easier days.', theme: 'cta--navy' },
-    { text: 'Care for your space. Respect for your people.', theme: 'cta--lime' },
-    { text: 'A welcoming space starts with Clean28.', theme: 'cta--blue' }
+    { text: 'A professional clean starts with a clear plan.', theme: 'cta--blue' },
+    { text: 'Reliable standards for every workday.', theme: 'cta--lime' },
+    { text: 'Clean spaces support better business.', theme: 'cta--navy' },
+    { text: 'Professional service. Consistent quality.', theme: 'cta--lime' },
+    { text: 'A welcoming workplace starts with Clean28.', theme: 'cta--blue' }
   ];
   const reduceQuoteMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let quoteIndex = 0;
@@ -125,20 +125,20 @@ if (ctaQuote) {
 }
 
 const plans = {
-  home: {
-    title: 'Home cleaning, your way',
-    description: 'A flexible clean that brings your rooms back to their best, whether you need a regular rhythm or a one-off reset.',
-    includes: ['Kitchens and bathrooms', 'Vacuuming and mopping', 'Dusting and surfaces', 'Your priority areas']
+  office: {
+    title: 'Office cleaning, built around your operations',
+    description: 'Dependable cleaning for workspaces, meeting rooms and amenities, shaped around the rhythm of your business.',
+    includes: ['Workstations and meeting rooms', 'Kitchens and washrooms', 'Floor vacuuming and mopping', 'Waste and recycling removal']
   },
-  lease: {
-    title: 'Community spaces, safe and welcoming',
-    description: 'Thoughtful cleaning for shared spaces, with safe products, clear communication and care for everyone who uses them.',
-    includes: ['Shared areas and entry points', 'Washrooms and touchpoints', 'Floors and common surfaces', 'Flexible community scheduling']
+  retail: {
+    title: 'Retail cleaning that protects first impressions',
+    description: 'Consistent care for customer-facing areas, showrooms, staff spaces and high-traffic zones.',
+    includes: ['Storefronts and display areas', 'Staff rooms and washrooms', 'Floors and internal glass', 'Schedules around trading hours']
   },
-  workplace: {
-    title: 'A better office day starts clean',
-    description: 'A reliable, after-hours-friendly service that helps your team and visitors walk into a welcoming space every day.',
-    includes: ['Desks and shared areas', 'Kitchens and washrooms', 'Floors and entry points', 'Schedule around your hours']
+  facility: {
+    title: 'Facility hygiene with consistent standards',
+    description: 'Practical cleaning and hygiene support for busy common areas, amenities and commercial facilities.',
+    includes: ['Washroom sanitisation and hygiene', 'Vacuuming and mopping', 'Internal window cleaning', 'Waste and recycling removal']
   }
 };
 
@@ -171,15 +171,15 @@ const enquiryForm = document.querySelector('#enquiry-form');
 const serviceSelect = document.querySelector('#service-select');
 const formHelper = document.querySelector('#form-helper');
 const helperMessages = {
-  home: '<strong>Home care selected.</strong> Tell us how often you would like help and which rooms matter most.',
-  lease: '<strong>Community-space cleaning selected.</strong> Share the space type, opening hours and anything your visitors need.',
-  workplace: '<strong>Office cleaning selected.</strong> Let us know your business hours, space type and ideal schedule.',
-  custom: '<strong>Custom clean selected.</strong> Describe what you would like refreshed and we will tailor the plan.'
+  office: '<strong>Office cleaning selected.</strong> Tell us about your workspaces, operating hours and ideal service frequency.',
+  retail: '<strong>Retail cleaning selected.</strong> Share your site type, trading hours and customer-facing priorities.',
+  facility: '<strong>Facility and hygiene cleaning selected.</strong> Tell us about your site, amenities and hygiene requirements.',
+  custom: '<strong>Tailored commercial cleaning selected.</strong> Describe your site and we will build the right scope.'
 };
 
 const updateFormHelper = () => {
   if (!serviceSelect || !formHelper) return;
-  formHelper.innerHTML = helperMessages[serviceSelect.value] || '<strong>Start with the essentials.</strong> Tell us what you need and we will shape a clear quote around your space.';
+  formHelper.innerHTML = helperMessages[serviceSelect.value] || '<strong>Start with the essentials.</strong> Tell us about your site and we will shape a clear commercial quote.';
 };
 
 if (serviceSelect) {
@@ -188,6 +188,37 @@ if (serviceSelect) {
   serviceSelect.addEventListener('change', updateFormHelper);
   updateFormHelper();
 }
+
+const companyProfile = {
+  phoneDisplay: '0451 832 280',
+  phoneHref: 'tel:+61451832280',
+  email: 'admin@clean28.com.au',
+  website: 'www.clean28.com.au'
+};
+
+document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+  link.href = companyProfile.phoneHref;
+  link.textContent = link.textContent.replace(/Call\s+\d[\d\s]+/, `Call ${companyProfile.phoneDisplay}`);
+});
+
+document.querySelectorAll('.footer-phone').forEach(link => {
+  link.href = companyProfile.phoneHref;
+  link.textContent = `Call ${companyProfile.phoneDisplay}`;
+});
+
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+  link.href = 'https://wa.me/61451832280';
+});
+
+document.querySelectorAll('.legal').forEach(legal => {
+  if (!legal.querySelector('.company-contact-meta')) {
+    const meta = document.createElement('div');
+    meta.className = 'company-contact-meta';
+    meta.innerHTML = `<a href="mailto:${companyProfile.email}">${companyProfile.email}</a> · <a href="https://${companyProfile.website}" target="_blank" rel="noopener noreferrer">${companyProfile.website}</a>`;
+    legal.append(meta);
+  }
+});
+
 
 if (enquiryForm) {
   enquiryForm.addEventListener('submit', event => {
