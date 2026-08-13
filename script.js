@@ -219,6 +219,21 @@ document.querySelectorAll('.legal').forEach(legal => {
   }
 });
 
+document.querySelectorAll('.footer-menu-links').forEach(menu => {
+  const quoteLink = Array.from(menu.querySelectorAll('a')).find(link => link.textContent.trim() === 'Get a quote');
+  if (!quoteLink || menu.querySelector('a[href="privacy.html"]')) return;
+  const privacyLink = document.createElement('a');
+  privacyLink.href = 'privacy.html';
+  privacyLink.textContent = 'Privacy';
+  quoteLink.before(privacyLink);
+});
+
+document.querySelectorAll('.social-link--pending').forEach(link => link.remove());
+
+document.querySelectorAll('a[href="reviews.html"]').forEach(link => {
+  if (link.textContent.trim() === 'Reviews') link.textContent = 'Why Clean28';
+});
+
 
 if (enquiryForm) {
   const message = document.querySelector('#form-message');
