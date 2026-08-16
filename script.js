@@ -190,8 +190,8 @@ if (serviceSelect) {
 }
 
 const companyProfile = {
-  phoneDisplay: '0451 832 280',
-  phoneHref: 'tel:+61451832280',
+  phoneDisplay: '0447 716 696',
+  phoneHref: 'tel:+61447716696',
   email: 'admin@clean28.com.au',
   website: 'www.clean28.com.au'
 };
@@ -207,7 +207,7 @@ document.querySelectorAll('.footer-phone').forEach(link => {
 });
 
 document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
-  link.href = 'https://wa.me/61451832280';
+  link.href = 'https://wa.me/61447716696';
 });
 
 document.querySelectorAll('.legal').forEach(legal => {

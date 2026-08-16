@@ -12,4 +12,4 @@ Public website for Clean28 Cleaning Services, a Perth-owned commercial cleaning 
 
 ## Contact
 
-Call 0451 832 280, email admin@clean28.com.au, or use the website contact form to request a quote.
+Call 0447 716 696, email admin@clean28.com.au, or use the website contact form to request a quote.
